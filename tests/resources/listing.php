@@ -1,4 +1,4 @@
-
+<?php ?>
 <!doctype html>
 <!--[if IE 8]><html class="ie8 " lang="tr"><![endif]-->
 <!--[if IE 9]><html class="ie9 " lang="tr"><![endif]-->
