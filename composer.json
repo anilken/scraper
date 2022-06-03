@@ -1,0 +1,48 @@
+{
+    "name": "anilken/scraper",
+    "description": "This is my package scraper",
+    "keywords": [
+        "anilken",
+        "scraper"
+    ],
+    "homepage": "https://github.com/anilken/scraper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ANILKEN",
+            "email": "info@anilcanaslan.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0",
+        "voku/portable-ascii": "^2.0",
+        "symfony/browser-kit": "^4.4|^5.0|^6.0",
+        "symfony/css-selector": "^4.4|^5.0|^6.0",
+        "symfony/dom-crawler": "^4.4|^5.0|^6.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^7.0|^8.0|^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anilken\\Scraper\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anilken\\Scraper\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
