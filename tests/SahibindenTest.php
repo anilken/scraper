@@ -46,7 +46,7 @@ class SahibindenTest extends TestCase
         $transactions = [];
         $history = Middleware::history($transactions);
         $mock = new MockHandler([
-            new Response(200, ['content-type' => 'text/html; charset=utf-8'], file_get_contents(__DIR__.'/resources/listing.html')),
+            new Response(200, ['content-type' => 'text/html; charset=utf-8'], file_get_contents(__DIR__ . '/resources/listing.php')),
         ]);
         $handler = HandlerStack::create($mock);
         $handler->push($history);
