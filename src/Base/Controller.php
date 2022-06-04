@@ -33,7 +33,6 @@ class Controller
         }
     }
 
-
     /**
      * @param string $method
      * @param string $url
