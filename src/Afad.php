@@ -31,6 +31,6 @@ class Afad extends Controller
         $this->request('POST', $this->base_url . '/latestCatalogsList', $data);
 
         //cannot get html only json
-        return $this->client->getResponse()->getContent();
+        return json_decode($this->client->getResponse()->getContent());
     }
 }
