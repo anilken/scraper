@@ -19,6 +19,8 @@ class Controller
 
     protected $status_code;
 
+    protected $headers = [];
+
     /**
      * @param GuzzleClientInterface|null $guzzleClient
      */
@@ -30,6 +32,7 @@ class Controller
             $this->client->setClient($guzzleClient);
         }
     }
+
 
     /**
      * @param string $method
@@ -51,19 +54,22 @@ class Controller
 
         $query = http_build_query($params);
 
-        if ($query) {
+        if ($query && $method == 'GET') {
             $url .= '?'.$query;
         }
 
         $this->client->setServerParameter('HTTP_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36');
-
 
         $this->client->setHeader('Accept', "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9");
         $this->client->setHeader('User-Agent', "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36");
         $this->client->setHeader('Accept-Encoding', "gzip, deflate, br");
         $this->client->setHeader('Accept-Language', "tr,en;q=0.9");
 
-        $crawler = $this->client->request($method, $url);
+        foreach ($this->headers as $header => $value) {
+            $this->client->setHeader($header, $value);
+        }
+
+        $crawler = $this->client->request($method, $url, $params);
         $status_code = $this->client->getResponse()->getStatusCode();
 
         if ($status_code == 404) {
@@ -127,6 +133,22 @@ class Controller
     protected function setStatusCode($status_code)
     {
         $this->status_code = $status_code;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @param array $headers
+     */
+    public function setHeaders(array $headers): void
+    {
+        $this->headers = $headers;
     }
 
     /**
