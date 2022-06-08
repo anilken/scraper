@@ -1,9 +1,12 @@
 {
     "name": "anilken/scraper",
-    "description": "This is my package scraper",
+    "description": "Scrape turkish popular sites - Education purpose only - Sahibinden, Afad ..",
     "keywords": [
         "anilken",
-        "scraper"
+        "scraper",
+        "sahibinden",
+        "afad",
+        "deprem"
     ],
     "homepage": "https://github.com/anilken/scraper",
     "license": "MIT",
